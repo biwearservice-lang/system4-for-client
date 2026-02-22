@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { MessageSquare } from "lucide-react";
+import ParticleBackground from "@/components/ParticleBackground";
 
 const Index = () => {
   const raw = window.location.pathname.replace(/^\/+/, "").split("/")[0];
@@ -24,15 +25,29 @@ const Index = () => {
     };
   }, []);
 
+  const handleTryItOut = () => {
+    (window as any).voiceflow?.chat?.open();
+  };
+
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: "var(--gradient-bg)" }}>
+    <div
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ background: "var(--gradient-bg)" }}
+    >
+      {/* 3D Particle Background */}
+      <ParticleBackground />
+
       {/* Grid overlay */}
-      <div className="absolute inset-0 grid-overlay" />
+      <div className="absolute inset-0 grid-overlay z-[1]" />
 
       {/* Glow orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-30"
-        style={{ background: "radial-gradient(circle, hsl(265 80% 55% / 0.4), transparent 70%)" }} />
+      <div
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-30 z-[1]"
+        style={{
+          background:
+            "radial-gradient(circle, hsl(265 80% 55% / 0.4), transparent 70%)",
+        }}
+      />
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-2xl mx-auto px-6">
@@ -47,12 +62,15 @@ const Index = () => {
         </p>
 
         <div className="bg-secondary/60 backdrop-blur-sm border border-border/50 rounded-xl p-6 mb-10 text-muted-foreground text-base md:text-lg leading-relaxed">
-          It's a robot that talks to your customers on your site, answers questions
-          instantly, and helps them get exactly what they want while you focus on
-          running your business.
+          It's a robot that talks to your customers on your site, answers
+          questions instantly, and helps them get exactly what they want while
+          you focus on running your business.
         </div>
 
-        <button className="glow-button inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-lg px-10 py-4 rounded-full mb-4 cursor-pointer">
+        <button
+          onClick={handleTryItOut}
+          className="glow-button inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-lg px-10 py-4 rounded-full mb-4 cursor-pointer"
+        >
           Try it out <MessageSquare className="w-5 h-5" />
         </button>
 
