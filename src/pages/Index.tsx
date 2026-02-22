@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { MessageSquare, Calendar } from "lucide-react";
 import ParticleBackground from "@/components/ParticleBackground";
+import brandLogo from "@/assets/brand-logo.jpg";
 
 const Index = () => {
   const raw = window.location.pathname.replace(/^\/+/, "").split("/")[0];
@@ -10,6 +11,13 @@ const Index = () => {
         .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
         .join(" ")
     : "Friend";
+
+  useEffect(() => {
+    // Dynamic tab title
+    document.title = personName !== "Friend"
+      ? `${personName} | AI Lead System`
+      : "AI Lead System";
+  }, [personName]);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -38,7 +46,12 @@ const Index = () => {
       style={{ background: "var(--gradient-bg)" }}
     >
       {/* Top nav */}
-      <div className="absolute top-0 left-0 right-0 z-20 flex justify-end p-5 md:p-8">
+      <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-5 md:p-8">
+        <img
+          src={brandLogo}
+          alt="AI Lead System"
+          className="h-10 w-10 rounded-lg object-contain"
+        />
         <a
           href="https://calendly.com/imranbis369/30min"
           target="_blank"
