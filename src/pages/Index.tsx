@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, Calendar } from "lucide-react";
 import ParticleBackground from "@/components/ParticleBackground";
 
 const Index = () => {
@@ -34,6 +34,19 @@ const Index = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ background: "var(--gradient-bg)" }}
     >
+      {/* Top nav */}
+      <div className="absolute top-0 left-0 right-0 z-20 flex justify-end p-5 md:p-8">
+        <a
+          href="https://calendly.com/imranbis369/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors border border-border/50 rounded-full px-5 py-2.5 backdrop-blur-sm bg-secondary/40 hover:bg-secondary/70"
+        >
+          <Calendar className="w-4 h-4" />
+          Book a Call
+        </a>
+      </div>
+
       {/* 3D Particle Background */}
       <ParticleBackground />
 
