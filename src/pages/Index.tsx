@@ -5,7 +5,10 @@ import ParticleBackground from "@/components/ParticleBackground";
 const Index = () => {
   const raw = window.location.pathname.replace(/^\/+/, "").split("/")[0];
   const personName = raw
-    ? raw.charAt(0).toUpperCase() + raw.slice(1).toLowerCase()
+    ? raw
+        .split("-")
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+        .join(" ")
     : "Friend";
 
   useEffect(() => {
