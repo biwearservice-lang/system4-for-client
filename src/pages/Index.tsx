@@ -25,9 +25,12 @@ const Index = () => {
     script.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
     script.onload = () => {
       (window as any).voiceflow?.chat?.load({
-        verify: { projectID: "699ab83c49ba085eb4356e70" },
+        verify: { projectID: "69ac63300742c7515a473f16" },
         url: "https://general-runtime.voiceflow.com",
         versionID: "production",
+        voice: {
+          url: "https://runtime-api.voiceflow.com",
+        },
       });
     };
     document.body.appendChild(script);
