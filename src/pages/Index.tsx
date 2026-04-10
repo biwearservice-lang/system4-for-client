@@ -25,7 +25,7 @@ const Index = () => {
     script.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
     script.onload = () => {
       (window as any).voiceflow?.chat?.load({
-        verify: { projectID: "69ac63300742c7515a473f16" },
+        verify: { projectID: "69d8cd44ff9b17227b29e3d8" },
         url: "https://general-runtime.voiceflow.com",
         versionID: "production",
         voice: {
